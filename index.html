@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Occasio</title>
+    <title>Occasion</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dropdown.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -14,9 +15,15 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Services</a>
+                    <ul class="dropdown">
+                        <li><a href="wedding.html">Wedding</a></li>
+                        <li><a href="birthday.html">Birthday Party</a></li>
+                        <li><a href="anniversary.html">Anniversary</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
             </ul>
             <div class="auth-buttons">
                 <a href="login.html" class="login-btn">Login</a>
@@ -40,8 +47,8 @@
             </div>
             <div class="slider-overlay">
                 <h2 class="slider-heading">TAKE A TRIP INTO PARADISE</h2>
-                <h1 class="slider-title">Partner with Occasio Event Management in Kerala</h1>
-                <p class="slider-subtitle">KERALA'S #1 EXCLUSIVE EVENT COMPANY</p>
+                <h1 class="slider-title">Partner with Occasio Event Management <Br> in India</h1>
+                <p class="slider-subtitle">INDIA'S #1 EXCLUSIVE EVENT COMPANY</p>
                 <div class="slider-social">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-youtube"></i></a>
@@ -49,7 +56,7 @@
                     <a href="#"><i class="fab fa-linkedin"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                 </div>
-                <a href="#" class="contact-btn">Contact Us</a>
+                <a href="contact.html" class="contact-btn">Contact Us</a>
             </div>
         </div>
 
@@ -58,7 +65,7 @@
                 <h2>WHAT <span>WE ARE</span></h2>
                 <p>Classic Events is young and dynamic event management company, which positions itself as "One-Stop Solutions" for all event needs. At Classic Events,we strive to be the most reliable and creative provider of a wide range of services to the clients.</p>
                 <p>Classic Events is one of the leading corporate event management companies in India.</p>
-                <a href="#" class="read-more-btn">Read More</a>
+                <a href="about.html" class="read-more-btn">Read More</a>
             </div>
             <div class="featured-image">
                 <img src="images/slide2.jpeg" alt="Featured Event">
@@ -110,37 +117,37 @@
         </section>
 
         <section class="services-section">
-            <h2 class="section-title">OUR SERVICES</h2>
-            <h3 class="services-heading">Services by Occasio® Event Management</h3>
-            <p class="services-description">Occasio® Event Management is a certified event management company based in India. We offer excellent, comprehensive event management services, including personal event planning, corporate events and conferences, private parties, trade exhibitions, virtual event management services, and entertaining stage shows all over India. Feel free to contact us.</p>
+            <h2 class="section-title">OUR SERVICES</h2> 
+            <h3 class="services-heading">Services by Occasion Event Management</h3>
+            <p class="services-description">Occasion Event Management is a certified event management company based in India. We offer excellent, comprehensive event management services, including personal event planning, corporate events and conferences, private parties, trade exhibitions, virtual event management services, and entertaining stage shows all over India. Feel free to contact us.</p>
             
             <div class="services-grid">
                 <div class="service-card">
                     <img src="images/slide1.jpeg" alt="Corporate Event Management">
                     <h4>Corporate Event Management</h4>
                     <p>If you want to make a statement at your next corporate event, partner with Occasio Event Management Company in India.</p>
-                    <a href="#" class="learn-more">Learn More »</a>
+                    <a href="anniversary.html" class="learn-more">Learn More »</a>
                 </div>
 
                 <div class="service-card">
                     <img src="images/slide2.jpeg" alt="Wedding Planners">
                     <h4>Wedding Planners</h4>
                     <p>Have you ever dreamed of planning the perfect dream event to be remembered forever?</p>
-                    <a href="#" class="learn-more">Learn More »</a>
+                    <a href="wedding.html" class="learn-more">Learn More »</a>
                 </div>
 
                 <div class="service-card">
                     <img src="images/slide3.jpeg" alt="Destination Wedding In India">
                     <h4>Destination Wedding In India</h4>
                     <p>Celebrate your special day in paradise as you enjoy a luxurious destination event with us!</p>
-                    <a href="#" class="learn-more">Learn More »</a>
+                    <a href="wedding.html" class="learn-more">Learn More »</a>
                 </div>
 
                 <div class="service-card">
                     <img src="images/slide1.jpeg" alt="Virtual Event Management">
                     <h4>Virtual Event Management</h4>
                     <p>Experience seamless virtual events with our cutting-edge technology and expert management services!</p>
-                    <a href="#" class="learn-more">Learn More »</a>
+                    <a href="birthday.html" class="learn-more">Learn More »</a>
                 </div>
             </div>
         </section>
@@ -164,9 +171,8 @@
                 <ul class="footer-links">
                     <li><a href="#">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
-                    <li><a href="#">Services</a></li>
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
 
@@ -194,5 +200,6 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
 </body>
 </html>

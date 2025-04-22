@@ -5,119 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Your Website</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .auth-container {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: url('images/slide2.jpeg') center/cover no-repeat;
-            padding: 2rem;
-            position: relative;
-        }
+    <link rel="stylesheet" href="css/login.css">
         
-        .auth-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(138, 43, 226, 0.85) 0%, rgba(138, 43, 226, 0.95) 100%);
-            z-index: 1;
-        }
         
-        .auth-box {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .auth-box {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 400px;
-        }
-        
-        .auth-header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
-        .auth-header img {
-            width: 120px;
-            margin-bottom: 1rem;
-        }
-        
-        .auth-header h2 {
-            color: #333;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .auth-form {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        
-        .form-group label {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .form-group input {
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-        
-        .form-group input:focus {
-            border-color: #8a2be2;
-            outline: none;
-        }
-        
-        .auth-btn {
-            background-color: #8a2be2;
-            color: white;
-            padding: 1rem;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        
-        .auth-btn:hover {
-            background-color: #9f3eff;
-        }
-        
-        .auth-links {
-            text-align: center;
-            margin-top: 1.5rem;
-        }
-        
-        .auth-links a {
-            color: #8a2be2;
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-        
-        .auth-links a:hover {
-            color: #9f3eff;
-        }
-    </style>
 </head>
 <body>
     <div class="auth-container">
@@ -144,10 +34,20 @@
             </div>
         </div>
     </div>
+    <script src="js/auth.js"></script>
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            // Add your login logic here
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            
+            if (login(email, password)) {
+                // Successful login
+                window.location.href = 'index.html';
+            } else {
+                // Failed login
+                alert('Invalid email or password. Please try again.');
+            }
         });
     </script>
 </body>

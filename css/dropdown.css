@@ -1,0 +1,50 @@
+/* Dropdown Menu Styles */
+nav ul li {
+    position: relative;
+}
+
+nav ul li ul {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+    top: 100%;
+    left: 0;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+nav ul li ul li {
+    width: 100%;
+    padding: 0;
+}
+
+nav ul li ul li a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: background-color 0.3s;
+}
+
+nav ul li ul li a:hover {
+    background-color: #f1f1f1;
+    color: #8a2be2;
+}
+
+/* Ensure dropdown text is always visible */
+nav ul li:hover > ul li a {
+    color: #333;
+}
+
+/* Active link styles */
+nav ul li a.active {
+    color: #8a2be2;
+    font-weight: bold;
+}

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Party Services - Classic Events</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/about.css">
+    <style>
+        /* Birthday Page Specific Styles */
+        .service-hero {
+            position: relative;
+            height: 60vh;
+            background: url('images/slide2.jpeg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .service-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .service-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .service-section {
+            padding: 5rem 2rem;
+            background-color: white;
+        }
+
+        .service-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .service-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .service-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .service-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: #8a2be2;
+            margin-right: 1.5rem;
+        }
+
+        .feature-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 4rem 2rem;
+            border-radius: 8px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: #8a2be2;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #7823c9;
+        }
+
+        .testimonial-section {
+            padding: 5rem 2rem;
+            background-color: white;
+        }
+
+        .testimonial-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .testimonial-heading h2 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .testimonial-grid {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 1.5rem;
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            min-width: 300px;
+            flex: 0 0 auto;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin: 0;
+            color: #333;
+        }
+
+        .author-info p {
+            margin: 0;
+            color: #8a2be2;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><img src="images/logo.png" alt="Logo"></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="#" class="active">Services</a>
+                    <ul class="dropdown">
+                        <li><a href="wedding.html">Wedding</a></li>
+                        <li><a href="birthday.html">Birthday Party</a></li>
+                        <li><a href="anniversary.html">Anniversary</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="signup.html" class="signin-btn">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="service-hero">
+        <div class="service-hero-content">
+            <h1>Birthday Party Services</h1>
+            <p>Birthday party is one the first thing everyone of us have ever remembered in their memories</p>
+        </div>
+    </div>
+
+    <section class="service-section">
+        <div class="service-container">
+            <div class="service-intro">
+                <h2>Celebrate Your Special Day</h2>
+                <p>Classic Events Have the perfect innovative team, who can come up with unique theme. Whoever's birthday party it may be a child or it may be elder's birthday party. We have a range of theme party of childrens.</p>
+                <p>Birthday party now a days become so important in everybody's life so the trends of recieving beautiful moments have become very close to hearts of people. Everyone wants to celebrate the birthday with little happiness to create beautiful and happier memories for lifetime. People living in busy life in metropolitans is always engaged in the finding excellent ways to enjoy a lot. The city like our Rajkot is also now on their track to enjoy birthday party and theme party.</p>
+            </div>
+
+            <div class="service-gallery">
+                <div class="gallery-item">
+                    <img src="images/slide1.jpeg" alt="Birthday Cake">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/slide2.jpeg" alt="Birthday Decoration">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/slide3.jpeg" alt="Birthday Party">
+                </div>
+            </div>
+
+            <div class="service-features">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Birthday Parties</h3>
+                        <p>Celebrate like never before with Classic Events making the birthday party cheerful, frantic function. We take care of everything i.e. decoration, cakes, balloon bouquets, DJ, live entertainment, bands, magicians, dance troops, fun, games, photography/video, lighting, stage show, fireworks and so on.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Theme Party</h3>
+                        <p>Celebrate your happy moods with Classic Events. Top-notch theme parties can be organized within your budget and location. You can make them happen. From superhero themes to princess parties, we can create the perfect themed celebration for any age group.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Entertainment</h3>
+                        <p>We provide a full range of entertainment options including DJs, live bands, magicians, clowns, face painters, balloon artists, and interactive games to keep your guests engaged and having fun throughout the celebration.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Photography & Videography</h3>
+                        <p>Capture every special moment with our professional photography and videography services. We'll create a beautiful visual record of your celebration that you can treasure for years to come.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h2>We can change the entire feel of a party</h2>
+                <p>There are countless options to be taken into account in terms of party theme planning, decoration as per that and perfect management of the entire event. These things collectively prepare such a birthday celebration, which can be cherished forever.</p>
+                <a href="contact.html" class="cta-button">Plan Your Birthday Now</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial-section">
+        <div class="testimonial-container">
+            <div class="testimonial-heading">
+                <h2>What Our Clients Say</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Classic Events organized my daughter's 5th birthday party, and it was absolutely magical! The princess theme was executed perfectly, and the children had an amazing time. Thank you for making her day so special!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Neha Sharma</h4>
+                            <p>Children's Birthday</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I wanted my 30th birthday to be memorable, and Classic Events delivered beyond my expectations. The superhero theme party was a hit among all my friends, and the attention to detail was impressive!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Rohit Patel</h4>
+                            <p>Adult Birthday</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"We hired Classic Events for my father's 60th birthday celebration. They created an elegant and sophisticated event that perfectly honored his life and achievements. The service was impeccable!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Anita Desai</h4>
+                            <p>Milestone Birthday</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="images/logo.png" alt="Logo" class="footer-logo">
+                <p>Classic Events is a premier event management company specializing in creating unforgettable experiences for all types of celebrations and corporate gatherings.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Event Street, Kochi, Kerala, India</p>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> info@classicevents.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Classic Events. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

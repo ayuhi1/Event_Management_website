@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anniversary Services - Classic Events</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/about.css">
+    <style>
+        /* Anniversary Page Specific Styles */
+        .service-hero {
+            position: relative;
+            height: 60vh;
+            background: url('images/slide3.jpeg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .service-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .service-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .service-section {
+            padding: 5rem 2rem;
+            background-color: white;
+        }
+
+        .service-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .service-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .service-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .service-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            color: #8a2be2;
+            margin-right: 1.5rem;
+        }
+
+        .feature-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .cta-section {
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 4rem 2rem;
+            border-radius: 8px;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .cta-section p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background-color: #8a2be2;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #7823c9;
+        }
+
+        .testimonial-section {
+            padding: 5rem 2rem;
+            background-color: white;
+        }
+
+        .testimonial-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-heading {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .testimonial-heading h2 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .testimonial-grid {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding-bottom: 1.5rem;
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            min-width: 300px;
+            flex: 0 0 auto;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin: 0;
+            color: #333;
+        }
+
+        .author-info p {
+            margin: 0;
+            color: #8a2be2;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><img src="images/logo.png" alt="Logo"></div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="#" class="active">Services</a>
+                    <ul class="dropdown">
+                        <li><a href="wedding.html">Wedding</a></li>
+                        <li><a href="birthday.html">Birthday Party</a></li>
+                        <li><a href="anniversary.html">Anniversary</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="signup.html" class="signin-btn">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="service-hero">
+        <div class="service-hero-content">
+            <h1>Anniversary Services</h1>
+            <p>Celebrate your special day in style</p>
+        </div>
+    </div>
+
+    <section class="service-section">
+        <div class="service-container">
+            <div class="service-intro">
+                <h2>Celebrate Your Milestone</h2>
+                <p>Be it your wedding anniversary, or company's establishment day, or jubilees, allows us to spice up you event with some astonishing themes perfectly suitable for your jubilation. Classic Events is happy to plan with you and suggest creative ideas to make your celebration extraordinary.</p>
+                <p>Anniversary parties are special events, not only do they bring back all the memories of the special day, but they are also a celebration of the continuing commitment with the chance for friends and relations to join in and show their love and support. Our anniversary party planners will help you create a perfect plan for the anniversary party. They are there to help your event become a reality and have the most beautiful and unforgettable anniversary party.</p>
+            </div>
+
+            <div class="service-gallery">
+                <div class="gallery-item">
+                    <img src="images/slide1.jpeg" alt="Anniversary Cake">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/slide2.jpeg" alt="Anniversary Decoration">
+                </div>
+                <div class="gallery-item">
+                    <img src="images/slide3.jpeg" alt="Anniversary Celebration">
+                </div>
+            </div>
+
+            <div class="service-features">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Romantic Celebrations</h3>
+                        <p>Whether it's your first anniversary or your fiftieth, we create romantic and intimate celebrations that honor your journey together. From candlelit dinners to grand receptions, we design the perfect setting for your special milestone.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Corporate Anniversaries</h3>
+                        <p>Celebrate your company's milestones with events that reflect your corporate culture and achievements. We create professional and engaging celebrations that honor your organization's history while looking toward its future.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Photo & Video Services</h3>
+                        <p>Capture the precious moments of your anniversary celebration with our professional photography and videography services. We create beautiful visual memories that you'll treasure for years to come.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Custom Gifts & Mementos</h3>
+                        <p>We can arrange for special anniversary gifts, personalized mementos, and custom keepsakes that commemorate your special milestone and make your celebration even more meaningful.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h2>Make Your Anniversary Unforgettable</h2>
+                <p>Let us help you create a celebration that honors your past and celebrates your future. Our expert team will design an anniversary event that perfectly reflects your journey and creates new memories to cherish.</p>
+                <a href="contact.html" class="cta-button">Plan Your Anniversary</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonial-section">
+        <div class="testimonial-container">
+            <div class="testimonial-heading">
+                <h2>What Our Clients Say</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Classic Events planned our 25th wedding anniversary, and it was absolutely perfect. They recreated elements from our original wedding while adding modern touches. Our guests were amazed, and we couldn't have asked for a more beautiful celebration."</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Rajesh & Sunita Menon</h4>
+                            <p>Silver Anniversary</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"We hired Classic Events for our company's 10th anniversary celebration. The event was professional, engaging, and perfectly reflected our company culture. Our employees and clients were impressed with every detail."</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Arun Kumar</h4>
+                            <p>CEO, TechSolutions India</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"For our 50th anniversary, we wanted something truly special. Classic Events created an elegant golden jubilee celebration that brought tears to our eyes. They captured our journey together perfectly and created a magical evening."</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Thomas & Mary Jacob</h4>
+                            <p>Golden Anniversary</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="images/logo.png" alt="Logo" class="footer-logo">
+                <p>Classic Events is a premier event management company specializing in creating unforgettable experiences for all types of celebrations and corporate gatherings.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Event Street, Kochi, Kerala, India</p>
+                <p><i class="fas fa-phone"></i> +91 98765 43210</p>
+                <p><i class="fas fa-envelope"></i> info@classicevents.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Classic Events. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
