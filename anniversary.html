@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dropdown.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/profile-dropdown.css">
     <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/testimonials.css">
     <style>
         /* Anniversary Page Specific Styles */
         .service-hero {
             position: relative;
             height: 60vh;
-            background: url('images/slide3.jpeg') center/cover no-repeat;
+            background: url('images/anni1.webp') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -240,17 +242,18 @@
         <nav>
             <div class="logo"><img src="images/logo.png" alt="Logo"></div>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="#" class="active">Services</a>
                     <ul class="dropdown">
                         <li><a href="wedding.html">Wedding</a></li>
                         <li><a href="birthday.html">Birthday Party</a></li>
                         <li><a href="anniversary.html">Anniversary</a></li>
+                        <li><a href="other-events.html">Other Events</a></li>
                     </ul>
                 </li>
                 <li><a href="gallery.html">Gallery</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
             </ul>
             <div class="auth-buttons">
                 <a href="login.html" class="login-btn">Login</a>
@@ -276,13 +279,13 @@
 
             <div class="service-gallery">
                 <div class="gallery-item">
-                    <img src="images/slide1.jpeg" alt="Anniversary Cake">
+                    <img src="images/anni_page_2.jpeg" alt="Anniversary Cake">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/slide2.jpeg" alt="Anniversary Decoration">
+                    <img src="images/anni_page_1.jpeg" alt="Anniversary Decoration">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/slide3.jpeg" alt="Anniversary Celebration">
+                    <img src="images/anni_page_3.jpeg" alt="Anniversary Celebration">
                 </div>
             </div>
 
@@ -328,17 +331,16 @@
             <div class="cta-section">
                 <h2>Make Your Anniversary Unforgettable</h2>
                 <p>Let us help you create a celebration that honors your past and celebrates your future. Our expert team will design an anniversary event that perfectly reflects your journey and creates new memories to cherish.</p>
-                <a href="contact.html" class="cta-button">Plan Your Anniversary</a>
+                <a href="booking.php" class="cta-button">Plan Your Anniversary</a>
             </div>
         </div>
     </section>
 
     <section class="testimonial-section">
-        <div class="testimonial-container">
-            <div class="testimonial-heading">
-                <h2>What Our Clients Say</h2>
-            </div>
-            <div class="testimonial-grid">
+        <div class="section-title" style="margin-bottom: 3rem;">
+            <h2 style="color: var(--text-dark);">Client <span style="color: var(--primary-color);">Testimonials</span></h2>
+        </div>
+        <div class="testimonial-slider">
                 <div class="testimonial-card">
                     <p class="testimonial-text">"Classic Events planned our 25th wedding anniversary, and it was absolutely perfect. They recreated elements from our original wedding while adding modern touches. Our guests were amazed, and we couldn't have asked for a more beautiful celebration."</p>
                     <div class="testimonial-author">
@@ -388,22 +390,23 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Contact Us</h3>
-                <p><i class="fas fa-map-marker-alt"></i> 123 Event Street, Kochi, Kerala, India</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Event Street, Mumbai, India</p>
                 <p><i class="fas fa-phone"></i> +91 98765 43210</p>
-                <p><i class="fas fa-envelope"></i> info@classicevents.com</p>
+                <p><i class="fas fa-envelope"></i> infooccasio.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2023 Classic Events. All rights reserved.</p>
+            <p>&copy; 2024 Classic Events. All rights reserved.</p>
         </div>
     </footer>
 
     <script src="js/script.js"></script>
     <script src="js/auth.js"></script>
+    <script src="js/testimonials.js"></script>
 </body>
 </html>

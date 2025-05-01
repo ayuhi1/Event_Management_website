@@ -1,9 +1,67 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Profile dropdown toggle functionality
+    const userProfile = document.querySelector('.user-profile');
+    if (userProfile) {
+        userProfile.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('active');
+        });
+        
+        // Close dropdown only when clicking outside
+        // This ensures dropdown stays visible until clicked again
+        document.addEventListener('click', function(e) {
+            if (!userProfile.contains(e.target)) {
+                userProfile.classList.remove('active');
+            }
+        });
+    }
+    
     // Slider functionality
-    const slider = document.querySelector('.slider');
     const slides = document.querySelectorAll('.slide');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
     let currentSlide = 0;
-
+    
+    // Initialize the first slide
+    if (slides.length > 0) {
+        slides[0].classList.add('active');
+    }
+    
+    // Function to show a specific slide
+    function showSlide(index) {
+        // Hide all slides
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+        
+        // Show the selected slide
+        slides[index].classList.add('active');
+    }
+    
+    // Next slide function
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }
+    
+    // Previous slide function
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        showSlide(currentSlide);
+    }
+    
+    // Add event listeners to buttons if they exist
+    if (prevBtn) {
+        prevBtn.addEventListener('click', prevSlide);
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', nextSlide);
+    }
+    
+    // Auto-advance slides every 5 seconds
+    setInterval(nextSlide, 5000);
+    
     // Modal functionality
     const readMoreBtn = document.querySelector('.read-more-btn');
     const modalOverlay = document.createElement('div');
@@ -42,38 +100,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
 
-    function updateSlider() {
-        currentSlide = (currentSlide + 1) % slides.length;
-        slider.style.transform = `translateX(-${currentSlide * 33.333}%)`;
-    }
-
-    // Backup JavaScript control in case CSS animation fails
-    setInterval(updateSlider, 5000);
-
     // Add touch support for mobile devices
-    let touchStartX = 0;
-    let touchEndX = 0;
+    const slider = document.querySelector('.slider');
+    if (slider) {
+        let touchStartX = 0;
+        let touchEndX = 0;
 
-    slider.addEventListener('touchstart', function(e) {
-        touchStartX = e.touches[0].clientX;
-    });
+        slider.addEventListener('touchstart', function(e) {
+            touchStartX = e.touches[0].clientX;
+        });
 
-    slider.addEventListener('touchend', function(e) {
-        touchEndX = e.changedTouches[0].clientX;
-        handleSwipe();
-    });
+        slider.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].clientX;
+            handleSwipe();
+        });
 
-    function handleSwipe() {
-        const difference = touchStartX - touchEndX;
-        if (Math.abs(difference) > 50) {
-            if (difference > 0) {
-                // Swipe left
-                currentSlide = (currentSlide + 1) % slides.length;
-            } else {
-                // Swipe right
-                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+        function handleSwipe() {
+            const difference = touchStartX - touchEndX;
+            if (Math.abs(difference) > 50) {
+                if (difference > 0) {
+                    // Swipe left
+                    nextSlide();
+                } else {
+                    // Swipe right
+                    prevSlide();
+                }
             }
-            slider.style.transform = `translateX(-${currentSlide * 33.333}%)`;
         }
     }
 });

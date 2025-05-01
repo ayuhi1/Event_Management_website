@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Events - Classic Events</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/profile-dropdown.css">
+    <link rel="stylesheet" href="css/about.css">
+    <style>
+        /* Other Events Page Specific Styles */
+        .service-hero {
+            position: relative;
+            height: 60vh;
+            background: url('images/Party1.jpeg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .service-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .service-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+        }
+
+        .service-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .service-section {
+            padding: 5rem 2rem;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .service-card-content {
+            padding: 1.5rem;
+        }
+
+        .service-card h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: #ff4d4d;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #ff3333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><img src="images/logo.png" alt="Logo"></div>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="#">Services</a>
+                    <ul class="dropdown">
+                        <li><a href="wedding.html">Wedding</a></li>
+                        <li><a href="birthday.html">Birthday Party</a></li>
+                        <li><a href="anniversary.html">Anniversary</a></li>
+                        <li><a href="other-events.html" class="active">Other Events</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="signup.html" class="signin-btn">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="service-hero">
+        <div class="service-hero-content">
+            <h1>Special Events & Celebrations</h1>
+            <p>Creating unforgettable moments for every occasion</p>
+        </div>
+    </div>
+
+    <section class="service-section">
+        <div class="container">
+            <h2 class="section-title">Our Special Event Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <img src="images/slide1.jpeg" alt="Corporate Events">
+                    <div class="service-card-content">
+                        <h3>Corporate Events</h3>
+                        <p>From conferences and seminars to team building events and product launches, we create professional and engaging corporate experiences.</p>
+                        <a href="#" class="cta-button learn-more" data-event="corporate">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="images/slide2.jpeg" alt="Cultural Events">
+                    <div class="service-card-content">
+                        <h3>Cultural Events</h3>
+                        <p>Celebrate traditions and heritage with our expertly planned cultural events, festivals, and ceremonies.</p>
+                        <a href="#" class="cta-button learn-more" data-event="cultural">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="images/slide3.jpeg" alt="Fashion Shows">
+                    <div class="service-card-content">
+                        <h3>Fashion Shows</h3>
+                        <p>Create stunning runway experiences with our professional fashion show planning and execution services.</p>
+                        <a href="#" class="cta-button learn-more" data-event="fashion">Learn More</a>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <img src="images/slide1.jpeg" alt="Social Gatherings">
+                    <div class="service-card-content">
+                        <h3>Social Gatherings</h3>
+                        <p>Make your social events memorable with our comprehensive planning and coordination services.</p>
+                        <a href="#" class="cta-button learn-more" data-event="social">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="images/slide2.jpeg" alt="Dance Show">
+                    <div class="service-card-content">
+                        <h3>Dance Show</h3>
+                        <p>Showcase talent with our professionally organized dance shows, competitions, and performances.</p>
+                        <a href="#" class="cta-button learn-more" data-event="dance">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <img src="images/slide3.jpeg" alt="DJ Night">
+                    <div class="service-card-content">
+                        <h3>DJ Night</h3>
+                        <p>Create an electrifying atmosphere with our premium DJ services for parties, clubs, and special events.</p>
+                        <a href="#" class="cta-button learn-more" data-event="dj">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="images/logo.png" alt="Logo" class="footer-logo">
+                <p class="footer-description">Classic Events is your trusted partner for all types of event management services across India.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3 class="footer-title">Contact Info</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Event Street, Mumbai, India</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+91 123 456 7890</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@classicevents.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Occasio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Overlay for Event Details -->
+    <div class="modal-overlay">
+        <div class="modal">
+            <button class="modal-close">&times;</button>
+            <img src="" alt="Event Image" id="modal-image">
+            <div class="modal-content">
+                <h2 id="modal-title">Event Title</h2>
+                <p id="modal-description">Event description will appear here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Modal functionality for event details
+            const learnMoreBtns = document.querySelectorAll('.learn-more');
+            const modalOverlay = document.querySelector('.modal-overlay');
+            const modalClose = document.querySelector('.modal-close');
+            const modalImage = document.getElementById('modal-image');
+            const modalTitle = document.getElementById('modal-title');
+            const modalDescription = document.getElementById('modal-description');
+
+            // Event details data
+            const eventDetails = {
+                corporate: {
+                    title: "Corporate Events",
+                    image: "images/slide1.jpeg",
+                    description: "Our corporate event services include conferences, seminars, team building activities, product launches, and more. We handle everything from venue selection and setup to catering and technical support, ensuring your corporate event is professional, engaging, and successful. Our experienced team works closely with you to understand your objectives and deliver an event that exceeds expectations."
+                },
+                cultural: {
+                    title: "Cultural Events",
+                    image: "images/slide2.jpeg",
+                    description: "Celebrate traditions and heritage with our expertly planned cultural events, festivals, and ceremonies. We respect the cultural significance of each event and ensure authentic experiences through careful planning, appropriate decor, traditional catering, and entertainment that honors your cultural heritage. Our team has experience with diverse cultural celebrations from around the world."
+                },
+                fashion: {
+                    title: "Fashion Shows",
+                    image: "images/slide3.jpeg",
+                    description: "Create stunning runway experiences with our professional fashion show planning and execution services. We handle everything from runway design and lighting to model coordination and backstage management. Our fashion show services include venue selection, seating arrangements, sound systems, photography, and videography to showcase your collection in the best possible light."
+                },
+                social: {
+                    title: "Social Gatherings",
+                    image: "images/slide1.jpeg",
+                    description: "Make your social events memorable with our comprehensive planning and coordination services. Whether it's a reunion, holiday party, or casual get-together, we ensure your social gathering runs smoothly. Our services include venue selection, theme development, decor, catering, entertainment, and all the little details that make your event special and stress-free for you and your guests."
+                },
+                dance: {
+                    title: "Dance Show",
+                    image: "images/slide2.jpeg",
+                    description: "Our dance show services provide a professional platform for showcasing talent through expertly organized performances, competitions, and recitals. We handle stage setup, lighting design, sound engineering, choreography assistance, and audience management. Whether you're planning a school dance recital, a professional dance competition, or a cultural dance showcase, our team ensures a seamless and impressive production."
+                },
+                dj: {
+                    title: "DJ Night",
+                    image: "images/slide3.jpeg",
+                    description: "Create an electrifying atmosphere with our premium DJ services for parties, clubs, and special events. We provide top-tier sound equipment, professional DJs with extensive music libraries, lighting effects, and dance floor setups. Our DJs are skilled at reading the crowd and creating the perfect musical journey for your event, whether it's a corporate party, wedding reception, or dedicated club night."
+                }
+            };
+
+            // Add event listeners to Learn More buttons
+            learnMoreBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const eventType = this.getAttribute('data-event');
+                    const details = eventDetails[eventType];
+                    
+                    // Update modal content
+                    modalImage.src = details.image;
+                    modalTitle.textContent = details.title;
+                    modalDescription.textContent = details.description;
+                    
+                    // Show modal
+                    modalOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+
+            // Close modal functionality
+            modalClose.addEventListener('click', function() {
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            modalOverlay.addEventListener('click', function(e) {
+                if (e.target === modalOverlay) {
+                    modalOverlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+
+    <style>
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal {
+            background-color: white;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal {
+            transform: scale(1);
+        }
+
+        .modal img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .modal-content {
+            padding: 2rem;
+        }
+
+        .modal-content h2 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .modal img {
+                height: 200px;
+            }
+            
+            .modal-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</body>
+</html>

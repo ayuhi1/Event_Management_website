@@ -1,3 +1,8 @@
+<?php
+// Redirect to the PHP version
+header('Location: contact.php');
+exit;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +12,13 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dropdown.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/profile-dropdown.css">
     <style>
         /* Contact Page Specific Styles */
         .contact-hero {
             position: relative;
             height: 60vh;
-            background: url('images/slide2.jpeg') center/cover no-repeat;
+            background: url('images/contact1.jpeg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -214,6 +220,7 @@
                         <li><a href="wedding.html">Wedding</a></li>
                         <li><a href="birthday.html">Birthday Party</a></li>
                         <li><a href="anniversary.html">Anniversary</a></li>
+                        <li><a href="other-events.html">Other Events</a></li>
                     </ul>
                 </li>
                 <li><a href="gallery.html">Gallery</a></li>
@@ -230,7 +237,7 @@
         <section class="contact-hero">
             <div class="contact-hero-content">
                 <h1>Contact Us</h1>
-                <p>Need help planning your next event? Look no further than Melodia Event Management Kerala!</p>
+                <p>Need help planning your next event? Look no further than Melodia Event Management!</p>
                 <p>We can provide everything you need to ensure your event is a success.</p>
             </div>
         </section>
@@ -238,7 +245,7 @@
         <section class="contact-section">
             <div class="contact-container">
                 <div class="contact-info">
-                    <h2 class="contact-heading">WANT TO <span>WORK WITH US?</span></h2>
+                    <h2 class="contact-heading">HELP US BY<span> YOUR FEEDBACK</span></h2>
                     <p class="contact-text">We'd love to hear from you! Whether you're planning a wedding, corporate event, or any special occasion, our team is ready to help make your vision a reality.</p>
                     
                     <div class="contact-details">
@@ -283,7 +290,18 @@
                 </div>
                 
                 <div class="contact-form">
-                    <form action="#" method="post">
+                    <?php
+                    session_start();
+                    if(isset($_SESSION['contact_success'])) {
+                        echo '<div class="alert alert-success">' . $_SESSION['contact_success'] . '</div>';
+                        unset($_SESSION['contact_success']);
+                    }
+                    if(isset($_SESSION['contact_error'])) {
+                        echo '<div class="alert alert-error">' . $_SESSION['contact_error'] . '</div>';
+                        unset($_SESSION['contact_error']);
+                    }
+                    ?>
+                    <form action="contact_process.php" method="post" id="contactForm">
                         <div class="form-group">
                             <label for="name">Full Name</label>
                             <input type="text" id="name" name="name" placeholder="Enter your Full Name" required>
@@ -297,6 +315,11 @@
                         <div class="form-group">
                             <label for="email">Email ID</label>
                             <input type="email" id="email" name="email" placeholder="Enter your Email ID" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" placeholder="Enter Subject" required>
                         </div>
                         
                         <div class="form-group">

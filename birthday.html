@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dropdown.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/profile-dropdown.css">
     <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="css/testimonials.css">
     <style>
         /* Birthday Page Specific Styles */
         .service-hero {
             position: relative;
             height: 60vh;
-            background: url('images/slide2.jpeg') center/cover no-repeat;
+            background: url('images/birthday1.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -240,17 +242,19 @@
         <nav>
             <div class="logo"><img src="images/logo.png" alt="Logo"></div>
             <ul>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="#" class="active">Services</a>
                     <ul class="dropdown">
                         <li><a href="wedding.html">Wedding</a></li>
                         <li><a href="birthday.html">Birthday Party</a></li>
                         <li><a href="anniversary.html">Anniversary</a></li>
+                        <li><a href="other-events.html">Other Events</a></li>
+                        
                     </ul>
                 </li>
                 <li><a href="#">Gallery</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="contact.php">Contact Us</a></li>
             </ul>
             <div class="auth-buttons">
                 <a href="login.html" class="login-btn">Login</a>
@@ -276,10 +280,10 @@
 
             <div class="service-gallery">
                 <div class="gallery-item">
-                    <img src="images/slide1.jpeg" alt="Birthday Cake">
+                    <img src="images/party_page_!.jpeg" alt="Birthday Cake">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/slide2.jpeg" alt="Birthday Decoration">
+                    <img src="images/party_page_2.jpg" alt="Birthday Decoration">
                 </div>
                 <div class="gallery-item">
                     <img src="images/slide3.jpeg" alt="Birthday Party">
@@ -328,17 +332,16 @@
             <div class="cta-section">
                 <h2>We can change the entire feel of a party</h2>
                 <p>There are countless options to be taken into account in terms of party theme planning, decoration as per that and perfect management of the entire event. These things collectively prepare such a birthday celebration, which can be cherished forever.</p>
-                <a href="contact.html" class="cta-button">Plan Your Birthday Now</a>
+                <a href="booking.php" class="cta-button">Plan Your Birthday Now</a>
             </div>
         </div>
     </section>
 
     <section class="testimonial-section">
-        <div class="testimonial-container">
-            <div class="testimonial-heading">
-                <h2>What Our Clients Say</h2>
-            </div>
-            <div class="testimonial-grid">
+        <div class="section-title" style="margin-bottom: 3rem;">
+            <h2 style="color: var(--text-dark);">Client <span style="color: var(--primary-color);">Testimonials</span></h2>
+        </div>
+        <div class="testimonial-slider">
                 <div class="testimonial-card">
                     <p class="testimonial-text">"Classic Events organized my daughter's 5th birthday party, and it was absolutely magical! The princess theme was executed perfectly, and the children had an amazing time. Thank you for making her day so special!"</p>
                     <div class="testimonial-author">
@@ -388,7 +391,7 @@
                     <li><a href="#">Home</a></li>
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="#">Gallery</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="contact.php">Contact Us</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -405,5 +408,6 @@
 
     <script src="js/script.js"></script>
     <script src="js/auth.js"></script>
+    <script src="js/testimonials.js"></script>
 </body>
 </html>

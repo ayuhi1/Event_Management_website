@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     checkUserLoggedIn();
 });
 
-// Function to check if user is logged in
+// check if user is logged in
 function checkUserLoggedIn() {
     const user = JSON.parse(localStorage.getItem('currentUser'));
     
@@ -32,20 +32,62 @@ function showUserProfile(user) {
         if (!userProfile) {
             userProfile = document.createElement('div');
             userProfile.className = 'user-profile';
+            
+            // Create dropdown menu
+            const profileDropdown = document.createElement('div');
+            profileDropdown.className = 'profile-dropdown';
+            
+            // Add logout option
+            const logoutLink = document.createElement('a');
+            logoutLink.href = '#';
+            logoutLink.className = 'logout-btn';
+            logoutLink.innerHTML = '<i class="fas fa-sign-out-alt"></i> Logout';
+            logoutLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                logout();
+            });
+            
+            // Append elements
+            profileDropdown.appendChild(logoutLink);
+            userProfile.appendChild(profileDropdown);
             navElement.appendChild(userProfile);
             
-            // Add click event for logout
+            // Add click event to toggle active class
             userProfile.addEventListener('click', function() {
-                if (confirm('Do you want to log out?')) {
-                    logout();
-                }
+                userProfile.classList.toggle('active');
             });
         }
         
         // Set the initial of the user's name
         const initial = user.fullname ? user.fullname.charAt(0).toUpperCase() : 'U';
         userProfile.textContent = initial;
-        userProfile.style.display = 'block';
+        
+        // Re-append the dropdown
+        let profileDropdown = userProfile.querySelector('.profile-dropdown');
+        if (!profileDropdown) {
+            profileDropdown = document.createElement('div');
+            profileDropdown.className = 'profile-dropdown';
+            
+            // Add logout option
+            const logoutLink = document.createElement('a');
+            logoutLink.href = '#';
+            logoutLink.className = 'logout-btn';
+            logoutLink.innerHTML = '<i class="fas fa-sign-out-alt"></i> Logout';
+            logoutLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                logout();
+            });
+            
+            profileDropdown.appendChild(logoutLink);
+            userProfile.appendChild(profileDropdown);
+            
+            // Add click event to toggle active class
+            userProfile.addEventListener('click', function() {
+                userProfile.classList.toggle('active');
+            });
+        }
+        
+        userProfile.style.display = 'flex';
     }
 }
 
@@ -64,41 +106,75 @@ function showAuthButtons() {
 }
 
 // Function to handle login
-function login(email, password) {
-    // In a real application, you would validate against a server
-    // For this demo, we'll check localStorage
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(u => u.email === email && u.password === password);
-    
-    if (user) {
-        // Store current user in localStorage
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        return true;
-    }
-    
-    return false;
+function login(email, password, userType) {
+    // Send login request to server
+    return fetch('auth/login.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password,
+            userType: userType
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Store current user in localStorage
+            localStorage.setItem('currentUser', JSON.stringify(data.user));
+            // Redirect to appropriate page
+            window.location.href = data.redirect;
+            return true;
+        } else {
+            // Show custom popup for error message
+            showErrorPopup(data.message);
+            return false;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showErrorPopup('An error occurred during login. Please try again.');
+        return false;
+    });
 }
 
+
 // Function to handle signup
-function signup(fullname, email, password) {
-    // In a real application, you would send this to a server
-    // For this demo, we'll store in localStorage
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    
-    // Check if user already exists
-    if (users.some(u => u.email === email)) {
-        return false; // User already exists
-    }
-    
-    // Create new user
-    const newUser = { fullname, email, password };
-    users.push(newUser);
-    
-    // Save users array and set current user
-    localStorage.setItem('users', JSON.stringify(users));
-    localStorage.setItem('currentUser', JSON.stringify(newUser));
-    
-    return true;
+function signup(fullname, email, password, userType) {
+    // Send signup request to server
+    return fetch('auth/signup.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            fullname: fullname,
+            email: email,
+            password: password,
+            userType: userType
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Store current user in localStorage
+            localStorage.setItem('currentUser', JSON.stringify(data.user));
+            // Redirect to appropriate page
+            window.location.href = data.redirect;
+            return true;
+        } else {
+            // Show custom popup for error message
+            showErrorPopup(data.message);
+            return false;
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        showErrorPopup('An error occurred during signup. Please try again.');
+        return false;
+    });
 }
 
 // Function to handle logout
@@ -107,9 +183,67 @@ function logout() {
     showAuthButtons();
     
     // Redirect to home page if not already there
-    if (window.location.pathname !== '/index.html' && 
+    if (window.location.pathname !== '/index.php' && 
         window.location.pathname !== '/' && 
-        window.location.pathname !== '/Event_Management_website/index.html') {
-        window.location.href = 'index.html';
+        window.location.pathname !== '/Event_Management_website/index.php') {
+        window.location.href = 'index.php';
     }
 }
+
+// Function to show error popup
+function showErrorPopup(message) {
+    // Remove any existing error popups
+    const existingPopup = document.querySelector('.error-popup');
+    if (existingPopup) {
+        existingPopup.remove();
+    }
+    
+    // Create popup container
+    const popup = document.createElement('div');
+    popup.className = 'error-popup';
+    
+    // Create popup content
+    const popupContent = document.createElement('div');
+    popupContent.className = 'error-popup-content';
+    
+    // Add message
+    const messageElement = document.createElement('p');
+    messageElement.textContent = message;
+    
+    // Add close button
+    const closeButton = document.createElement('button');
+    closeButton.textContent = 'OK';
+    closeButton.addEventListener('click', function() {
+        popup.remove();
+    });
+    
+    // Assemble popup
+    popupContent.appendChild(messageElement);
+    popupContent.appendChild(closeButton);
+    popup.appendChild(popupContent);
+    
+    // Add to document
+    document.body.appendChild(popup);
+    
+    // Auto-close after 5 seconds
+    setTimeout(function() {
+        if (document.body.contains(popup)) {
+            popup.remove();
+        }
+    }, 5000);
+}
+//show password
+document.addEventListener('DOMContentLoaded', function() {
+    const passwordInput = document.getElementById('password');
+    const showPasswordCheckbox = document.getElementById('showPassword');
+
+    if (passwordInput && showPasswordCheckbox) {
+        showPasswordCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+        });
+    }
+});
